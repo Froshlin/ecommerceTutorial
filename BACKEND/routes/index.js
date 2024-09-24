@@ -1,5 +1,5 @@
 var express = require('express');
-var stripe = require('stripe');
+var stripe = require('stripe')(process.env.stripeApiKey);
 var dotenv = require('dotenv')
 var router = express.Router();
 var path = require("path");
