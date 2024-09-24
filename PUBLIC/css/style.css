@@ -192,7 +192,7 @@ nav{
 
 /* SHOP PRODUCT SECTION */
 section{
-    padding: 60px 10px 30px;
+    padding: 80px 10px 30px;
 }
 .shop-header{
     font-size: 28px;
@@ -285,3 +285,10 @@ section{
     border-radius: 28px;
 }
 /* SUCCESS CONTAINER ENDS */
+
+
+@media(max-width:420px){
+    section{
+    padding: 130px 10px 30px;
+}
+}
