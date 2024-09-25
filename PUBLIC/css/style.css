@@ -4,7 +4,7 @@
 
 /* VARIABLE */
 :root{
-    --red-color: #2f2a2a;
+    --red-color: #fd4646;
     --green-color: #1b9cd7;
     --white-color: #ffffff;
     --container-color: #02192a;
@@ -192,7 +192,7 @@ nav{
 
 /* SHOP PRODUCT SECTION */
 section{
-    padding: 60px 10px 30px;
+    padding: 80px 10px 30px;
 }
 .shop-header{
     font-size: 28px;
@@ -203,7 +203,7 @@ section{
 }
 .main-product-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 25px;
 }
 .product-card{
@@ -285,3 +285,10 @@ section{
     border-radius: 28px;
 }
 /* SUCCESS CONTAINER ENDS */
+
+
+@media(max-width:420px){
+    section{
+    padding: 130px 10px 30px;
+}
+}
