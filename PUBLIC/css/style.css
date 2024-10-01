@@ -1,15 +1,17 @@
 /* GOOGLE FONT */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
 /* VARIABLE */
 :root {
     --red-color: #fd4646;
-    --green-color: #1b9cd7;
+    --blue-color: #1b9cd7;
     --white-color: #ffffff;
     --container-color: #02192a;
     --font-san: sans-serif;
     --font-poppin: Poppins;
+    --font-mont: Montserrat;
+    --box-shadow-color: rgba(0, 0, 0, 0.43);
 }
 
 /* UNIVERSAL SELECTOR */
@@ -28,6 +30,12 @@ body {
     color: var(--white-color);
 }
 
+.lg-container {
+    max-width: 90%;
+    width: 100%;
+    margin: auto;
+}
+
 img {
     max-width: 100%;
 }
@@ -40,6 +48,7 @@ header {
     width: 100%;
     z-index: 10;
     background-color: var(--container-color);
+    box-shadow: 2px 7px 12px var(--box-shadow-color);
 }
 
 nav {
@@ -49,12 +58,6 @@ nav {
     padding: 20px 15px;
 }
 
-.md-container {
-    max-width: 1080px;
-    width: 100%;
-    margin: auto;
-}
-
 .logo-container a,
 .cart-nav-icon i {
     color: var(--white-color);
@@ -62,7 +65,22 @@ nav {
 }
 
 .logo-container a {
-    font-size: 25px;
+    font-size: 30px;
+}
+
+.nav-link{
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.nav-link a{
+    color: var(--white-color);
+    font-size: 18px;
+}
+
+.nav-link a.active{
+    color: var(--blue-color);
 }
 
 .cart-nav-icon i {
@@ -80,7 +98,7 @@ nav {
     width: 20px;
     height: 20px;
     clip-path: circle();
-    background-color: var(--green-color);
+    background-color: var(--blue-color);
     color: var(--white-color);
     font-size: 11px;
     display: flex;
@@ -100,7 +118,7 @@ nav {
     height: 100vh;
     padding: 20px;
     background-color: var(--container-color);
-    box-shadow: -3px 1px 7px rgba(0, 0, 0, 0.43);
+    box-shadow: -3px 1px 7px var(--box-shadow-color);
     transition: 200ms ease;
     overflow: auto;
     scroll-behavior: smooth;
@@ -115,7 +133,7 @@ nav {
     top: 1%;
     right: 10%;
     font-size: 24px;
-    color: var(--green-color);
+    color: var(--blue-color);
     cursor: pointer;
 }
 
@@ -159,7 +177,7 @@ nav {
     height: 28px;
     padding: 2px 5px;
     border-radius: 3px;
-    border: 1px solid var(--green-color);
+    border: 1px solid var(--blue-color);
     outline-color: var(--red-color);
 }
 
@@ -170,7 +188,7 @@ nav {
 }
 
 .total-container {
-    border-top: 1px solid var(--green-color);
+    border-top: 1px solid var(--blue-color);
     display: flex;
     align-items: center;
     justify-content: right;
@@ -203,7 +221,7 @@ nav {
     height: 42px;
     border-radius: 21px;
     border: none;
-    background-color: var(--green-color);
+    background-color: var(--blue-color);
     color: var(--white-color);
     font-size: 17px;
     font-weight: 600;
@@ -216,6 +234,61 @@ nav {
 }
 
 /* NAV ENDS */
+
+
+/* HERO SECTION */
+.hero-section{
+    margin: 80px 0 0;
+    padding: 60px 0;
+    background: url(/PUBLIC/img/hero4.png);
+    background-repeat: no-repeat;
+    height: 75vh;
+}
+
+.hero-container{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 25px;
+    padding: 40px 0 0;
+    margin: 2.5% 5.5% 0;
+    width: 768px;
+    color: var(--container-color);
+}
+
+.hero-container h2{
+    font-size: 55px;
+    text-transform: uppercase;
+    font-family: var(--font-mont);
+}
+
+.hero-container p{
+    font-size: 24px;
+    font-family: var(--font-mont);
+    line-height: 37px;
+}
+
+.hero-container button{
+    margin-top: 28px;
+    width: 200px;
+    height: 56px;
+    border-radius: 28px;
+    border: none;
+    background-color: var(--red-color);
+    color: var(--white-color);
+    box-shadow: -2px 5px 15px var(--box-shadow-color);
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: capitalize;
+    transition: all 400ms;
+    cursor: pointer;
+}
+
+.hero-container button:active{
+    transform: scale(0.95);
+}
+
+/* HERO SECTION ENDS */
 
 
 /* SHOP PRODUCT SECTION */
@@ -233,13 +306,13 @@ section {
 
 .main-product-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 25px;
 }
 
 .product-card {
     background-color: #000000;
-    box-shadow: -1px 4px 10px rgba(0, 0, 0, 0.43);
+    box-shadow: -1px 4px 10px var(--box-shadow-color);
     padding: 10px;
     border-radius: 10px;
     transition: all 500ms ease;
@@ -280,7 +353,7 @@ section {
 }
 
 .add-to-cart {
-    background-color: var(--green-color);
+    background-color: var(--blue-color);
     padding: 10px;
     clip-path: circle();
     cursor: pointer;
@@ -292,7 +365,74 @@ section {
     color: var(--white-color);
 }
 
+.shop-btn-container{
+    text-align: center;
+    margin: 55px 0 40px;
+}
+
+.shop-btn-container button{
+    width: 220px;
+    font-size: 24px;
+    height: 62px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--red-color);
+    color: var(--white-color);
+    transition: all 330ms;
+    cursor: pointer;
+}
+
+.shop-btn-container button:active{
+    transform: scale(0.98);
+    opacity: 0.7;
+}
+
 /* SHOP PRODUCT SECTION ENDS */
+
+
+/* PREFOOTER SECTION */
+.prefooter-section{
+    background: url(/PUBLIC/img/b2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+}
+
+.prefooter-section h3{
+    font-size: 35px;
+}
+
+.prefooter-section h1{
+    font-size: 50px;
+    font-family: var(--font-mont);
+}
+
+.prefooter-section h1 span{
+    color: var(--red-color);
+}
+
+.prefooter-section button{
+    width: 220px;
+    font-size: 24px;
+    height: 62px;
+    border-radius: 10px;
+    border: none;
+    text-transform: capitalize;
+    font-weight: 700;
+    color: var(--red-color);
+    cursor: pointer;
+    transition: all 350ms;
+}
+
+.prefooter-section button:hover{
+    transform: scale(1.06);
+}
+/* PREFOOTER SECTION ENDS */
 
 
 /* SUCCESS CONTAINER */
@@ -323,7 +463,7 @@ section {
 
 .success-container a {
     background-color: var(--white-color);
-    color: var(--green-color);
+    color: var(--blue-color);
     text-decoration: underline;
     font-size: 18px;
     padding: 15px 28px;
