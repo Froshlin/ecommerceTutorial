@@ -20,26 +20,37 @@
             </div>
             <!-- logo container ends -->
 
-             <div class="nav-link">
-                <a href="https://expressecommerce.vercel.app">Home</a>
-                <a href="shop.html" class="active">Shop</a>
+            <div class="nav-link">
+                <a href="https://expressecommerce.vercel.app" class="active">Home</a>
+                <a href="https://expressecommerce.vercel.app/shop.html">Shop</a>
                 <a href="">Become a vendor</a>
-             </div>
 
-            <!-- cart nav icon -->
-            <div class="cart-nav-icon">
-                <i class="fa-solid fa-bag-shopping" id="cartIcon" data-quantity="0"></i>
+                <div class="close-nav-container">
+                    <i class="fa-solid fa-xmark" id="closeNav"></i>
+                </div>
             </div>
-            <!-- cart nav icon ends -->
-            
+
+            <div class="nav-icons-wrapper">
+                <!-- cart nav icon -->
+                <div class="cart-nav-icon">
+                    <i class="fa-solid fa-bag-shopping" id="cartIcon" data-quantity="0"></i>
+                </div>
+                <!-- cart nav icon ends -->
+                <!-- hamburger -->
+                <div class="hamburger-container">
+                    <i class="fa-solid fa-bars" id="openNav"></i>
+                </div>
+                <!-- hamburger ends -->
+            </div>
+
             <!-- cart sidebar -->
-             <div class="cart-sidebar">
+            <div class="cart-sidebar">
                 <i class="fa-solid fa-xmark" id="closeCart"></i>
                 <h1 class="cart-title">Your cart</h1>
                 <!-- cart content -->
-                 <div class="cart-content">
+                <div class="cart-content">
                     <!-- <div class="cart-box"></div>  -->
-                 </div>
+                </div>
                 <!-- cart content ends -->
                 <!-- total container -->
                 <div class="total-container">
@@ -50,7 +61,7 @@
                 <div class="cart-btn-container">
                     <button type="button" class="cart-action-btn">Pay now</button>
                 </div>
-             </div>
+            </div>
             <!-- cart sidebar ends -->
         </nav>
         <!-- NAV ENDS -->
@@ -199,5 +210,7 @@
         </div>
      </section>
     <!-- SHOP PRODUCT SECTION ENDS -->
+
+    <script src="js/script.js"></script>
 </body>
 </html>

@@ -6,17 +6,17 @@ const openNav = document.getElementById("openNav");
 const closeNav = document.getElementById("closeNav");
 const shopBtn = document.querySelectorAll("#showBtn");
 const productCards = document.querySelectorAll(".shop-product-card");
-var loadMore = document.querySelector("#loadBtn");
+const loadMore = document.getElementById("loadBtn");
 
 
 
 
 
-openNav.addEventListener("click", () => {
+openNav.addEventListener("click", () =>{
     navBar.classList.add("open")
 });
 
-closeNav.addEventListener("click", () => {
+closeNav.addEventListener("click", () =>{
     navBar.classList.remove("open")
 });
 
@@ -28,17 +28,26 @@ closeCart.addEventListener("click", () => {
     cartSideBar.classList.remove("open")
 });
 
-shopBtn.forEach((shopbuttons) => {
-    shopbuttons.addEventListener("click", () => {
+shopBtn.forEach((shopbuttons) =>{
+    shopbuttons.addEventListener("click", () =>{
         window.open("https://expressecommerce.vercel.app/shop.html", "_blank")
     })
 });
 
 
-// const defaultProductCard = 6
+var defaultProductCard = 6
 loadMore.addEventListener("click", () =>{
-    console.log("why")
-})
+    for (let i = defaultProductCard; i < defaultProductCard + 6; i++) {
+         if(productCards[i]){
+            productCards[i].style.display = "block"
+         }
+    }
+    defaultProductCard +=6;
+    if(defaultProductCard >= productCards.length){
+        event.target.style.display = "none"
+    }
+});
+
 
 if (document.readyState == "loading") {
     document.addEventListener("DOMContentLoaded", ready)
@@ -99,8 +108,8 @@ function addNewProductToCart(productTitle, productPrice, productImage, quantity 
             return;
         }
     }
-    var cartBoxContent =
-        `<img src="${productImage}" alt="product" id="cartImg" class="cart-img">
+    var cartBoxContent = 
+    `<img src="${productImage}" alt="product" id="cartImg" class="cart-img">
         <div class="cart-details">
             <div class="cart-product-title">${productTitle}</div>
             <div class="cart-price">${productPrice}</div>
@@ -115,7 +124,7 @@ function addNewProductToCart(productTitle, productPrice, productImage, quantity 
     saveAllProductToLocalStorage();
     updateQuantityCartIcon();
 }
-
+ 
 
 // REMOVING CART ITEM
 function removerCartItem(e) {
@@ -136,7 +145,7 @@ function quantityFieldChange(e) {
     updateTotalPrice();
     saveAllProductToLocalStorage();
     updateQuantityCartIcon();
-};
+};  
 
 
 // FUNCTION FOR UPDATING TOTAL
@@ -161,17 +170,17 @@ function updateTotalPrice() {
     totalPrice = Math.round(totalPrice * 100) / 100;
 
     document.getElementsByClassName("total-price")[0].innerText = "$" + totalPrice;
-
+    
     localStorage.setItem("savedTotal", totalPrice);
 };
 
 
 // FUNCTION FOR LOCAL STORAGE
-function saveAllProductToLocalStorage() {
+function saveAllProductToLocalStorage(){
     var saveCartContent = document.getElementsByClassName("cart-content")[0];
     var saveCartBox = saveCartContent.getElementsByClassName("cart-box");
     var savedCartProduct = []
-
+    
     for (let i = 0; i < saveCartBox.length; i++) {
         const saveCartBoxes = saveCartBox[i];
 
@@ -181,10 +190,10 @@ function saveAllProductToLocalStorage() {
         var productImgElement = saveCartBoxes.getElementsByClassName('cart-img')[0].src;
 
         var items = {
-            title: titleElement.textContent,
-            price: priceElement.textContent,
-            quantity: quantityElement.value,
-            productimage: productImgElement
+            title : titleElement.textContent,
+            price : priceElement.textContent,
+            quantity : quantityElement.value,
+            productimage : productImgElement
         }
         savedCartProduct.push(items);
     }
@@ -193,23 +202,23 @@ function saveAllProductToLocalStorage() {
 
 
 // Loads in cart
-function loadRefreshCartItem() {
+function loadRefreshCartItem(){
     var loadCartItems = localStorage.getItem("savedCartProduct");
-    if (loadCartItems) {
+    if(loadCartItems){
         loadCartItems = JSON.parse(loadCartItems);
 
         for (let i = 0; i < loadCartItems.length; i++) {
             var loadItems = loadCartItems[i];
             addNewProductToCart(loadItems.title, loadItems.price, loadItems.productimage)
-
+            
             var loadCartBoxes = document.getElementsByClassName("cart-box");
             var loadCartBox = loadCartBoxes[loadCartBoxes.length - 1];
             var loadQuantity = loadCartBox.getElementsByClassName("cartQuantity")[0];
-            loadQuantity.value = loadItems.quantity;
+            loadQuantity.value = loadItems.quantity; 
         }
     }
     var cartTotal = localStorage.getItem("savedTotal");
-    if (cartTotal) {
+    if(cartTotal){
         document.getElementsByClassName("total-price")[0].innerText = "$" + cartTotal
     }
     updateQuantityCartIcon();
@@ -217,21 +226,21 @@ function loadRefreshCartItem() {
 
 
 // UPDATING THE QUANTITY IN THE CART ICON
-function updateQuantityCartIcon() {
+function updateQuantityCartIcon(){
     var quantityCartBoxes = document.getElementsByClassName("cart-box");
     var quantityIcon = 0;
 
     for (let i = 0; i < quantityCartBoxes.length; i++) {
         const quantityCartBox = quantityCartBoxes[i];
         const quantityIconElem = quantityCartBox.getElementsByClassName("cartQuantity")[0];
-        quantityIcon += parseInt(quantityIconElem.value);
+        quantityIcon+= parseInt(quantityIconElem.value);
     }
     var quantityCartIcon = document.querySelector("#cartIcon");
-    quantityCartIcon.setAttribute("data-quantity", quantityIcon)
+     quantityCartIcon.setAttribute("data-quantity", quantityIcon)
 };
 
 // CLEAR CART AFTER PAYMENT
-function clearCartAfterPayment() {
+function clearCartAfterPayment(){
     const clearCartContent = document.getElementsByClassName("cart-content")[0];
     clearCartContent.innerHTML = "";
     updateTotalPrice();
