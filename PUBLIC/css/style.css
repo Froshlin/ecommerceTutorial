@@ -348,6 +348,20 @@ nav {
     gap: 25px;
 }
 
+.shop-product-card{
+    display: none;
+}
+
+.shop-product-card:nth-child(1), 
+.shop-product-card:nth-child(2), 
+.shop-product-card:nth-child(3),
+.shop-product-card:nth-child(4),
+.shop-product-card:nth-child(5),
+.shop-product-card:nth-child(6){
+    display: block;
+}
+
+
 .product-card {
     background-color: #000000;
     box-shadow: -1px 4px 10px var(--box-shadow-color);
