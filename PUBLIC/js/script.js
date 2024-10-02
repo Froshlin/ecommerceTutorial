@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const productCards = document.querySelectorAll(".shop-product-card");
 
     if (loadMore) {
-        loadMore.addEventListener("click", (e) => {
-            var defaultProductCard = 6;
+        var defaultProductCard = 6;
+        loadMore.addEventListener("click", () => {
             for (let i = defaultProductCard; i < defaultProductCard + 6; i++) {
                 if (productCards[i]) {
                     productCards[i].style.display = "block";
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             defaultProductCard += 6;
             if (defaultProductCard >= productCards.length) {
-                e.target.style.display = "none";
+                event.target.style.display = "none";
             }
         });
     }
