@@ -1,50 +1,61 @@
-const cartSideBar = document.querySelector(".cart-sidebar");
-const openCart = document.getElementById("cartIcon");
-const closeCart = document.getElementById("closeCart");
-const navBar = document.querySelector(".nav-link");
-const openNav = document.getElementById("openNav");
-const closeNav = document.getElementById("closeNav");
-const shopBtn = document.querySelectorAll("#showBtn");
-const productCards = document.querySelectorAll(".shop-product-card");
-const loadMore = document.getElementById("loadBtn");
+document.addEventListener('DOMContentLoaded', function() {
+    const cartSideBar = document.querySelector(".cart-sidebar");
+    const openCart = document.getElementById("cartIcon");
+    const closeCart = document.getElementById("closeCart");
+    const navBar = document.querySelector(".nav-link");
+    const openNav = document.getElementById("openNav");
+    const closeNav = document.getElementById("closeNav");
+    
+    // Only select these elements if they exist
+    const loadMore = document.getElementById("loadBtn");
+    const shopBtn = document.querySelectorAll("#showBtn");
+    const productCards = document.querySelectorAll(".shop-product-card");
 
-
-
-
-
-openNav.addEventListener("click", () =>{
-    navBar.classList.add("open")
-});
-
-closeNav.addEventListener("click", () =>{
-    navBar.classList.remove("open")
-});
-
-openCart.addEventListener("click", () => {
-    cartSideBar.classList.add("open")
-});
-
-closeCart.addEventListener("click", () => {
-    cartSideBar.classList.remove("open")
-});
-
-shopBtn.forEach((shopbuttons) =>{
-    shopbuttons.addEventListener("click", () =>{
-        window.open("https://expressecommerce.vercel.app/shop.html", "_blank")
-    })
-});
-
-
-var defaultProductCard = 6
-loadMore.addEventListener("click", () =>{
-    for (let i = defaultProductCard; i < defaultProductCard + 6; i++) {
-         if(productCards[i]){
-            productCards[i].style.display = "block"
-         }
+    if (loadMore) {
+        loadMore.addEventListener("click", (e) => {
+            var defaultProductCard = 6;
+            for (let i = defaultProductCard; i < defaultProductCard + 6; i++) {
+                if (productCards[i]) {
+                    productCards[i].style.display = "block";
+                }
+            }
+            defaultProductCard += 6;
+            if (defaultProductCard >= productCards.length) {
+                e.target.style.display = "none";
+            }
+        });
     }
-    defaultProductCard +=6;
-    if(defaultProductCard >= productCards.length){
-        event.target.style.display = "none"
+
+    if (openNav) {
+        openNav.addEventListener("click", () => {
+            navBar.classList.add("open");
+        });
+    }
+
+    if (closeNav) {
+        closeNav.addEventListener("click", () => {
+            navBar.classList.remove("open");
+        });
+    }
+
+    if (openCart) {
+        openCart.addEventListener("click", () => {
+            cartSideBar.classList.add("open");
+        });
+    }
+
+    if (closeCart) {
+        closeCart.addEventListener("click", () => {
+            cartSideBar.classList.remove("open");
+        });
+    }
+
+    if (shopBtn.length > 0) {
+        shopBtn.forEach((shopbuttons) => {
+            shopbuttons.addEventListener("click", () => {
+                window.open("https://expressecommerce.vercel.app/shop.html", "_blank");
+            });
+        });
     }
 });
 
@@ -76,7 +87,7 @@ function ready() {
         var button = addToCart[i];
         button.addEventListener("click", addToCartClicked)
     }
-    loadRefreshCartItem()
+    loadRefreshCartItem();
 }
 
 
