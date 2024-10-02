@@ -14,15 +14,21 @@ document.addEventListener('DOMContentLoaded', function() {
     if (loadMore) {
         var defaultProductCard = 6;
         loadMore.addEventListener("click", () => {
-            for (let i = defaultProductCard; i < defaultProductCard + 6; i++) {
-                if (productCards[i]) {
-                    productCards[i].style.display = "block";
+            loadMore.classList.add("active")
+
+            setTimeout(() => {
+                for (let i = defaultProductCard; i < defaultProductCard + 6; i++) {
+                    if (productCards[i]) {
+                        productCards[i].style.display = "block";
+                    }
                 }
-            }
-            defaultProductCard += 6;
-            if (defaultProductCard >= productCards.length) {
-                event.target.style.display = "none";
-            }
+                defaultProductCard += 6;
+                if (defaultProductCard >= productCards.length) {
+                    loadMore.style.display = "none";
+                }
+                
+                loadMore.classList.remove("active")
+            }, 2000);
         });
     }
 
