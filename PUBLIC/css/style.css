@@ -68,19 +68,43 @@ nav {
     font-size: 30px;
 }
 
-.nav-link{
+.nav-link {
     display: flex;
     align-items: center;
     gap: 35px;
 }
 
-.nav-link a{
+.nav-link a {
     color: var(--white-color);
     font-size: 18px;
 }
 
-.nav-link a.active{
+.nav-link a.active {
     color: var(--blue-color);
+}
+
+.close-nav-container{
+    display: none;
+    cursor: pointer;
+}
+
+.close-nav-container i{
+    font-size: 25px;
+}
+
+.nav-icons-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.hamburger-container {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger-container i{
+    font-size: 25px;
 }
 
 .cart-nav-icon i {
@@ -237,38 +261,52 @@ nav {
 
 
 /* HERO SECTION */
-.hero-section{
+.hero-section {
     margin: 80px 0 0;
     padding: 60px 0;
-    background: url(/PUBLIC/img/hero4.png);
+    background: url(../img/hero4.png);
     background-repeat: no-repeat;
+    background-position: top 25% right 50%;
     height: 75vh;
+    position: relative;
+    z-index: 1;
 }
 
-.hero-container{
+.hero-section::before {
+    content: "";
+    width: 100%;
+    height: 75vh;
+    background-color: rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+
+.hero-container {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     gap: 25px;
     padding: 40px 0 0;
-    margin: 2.5% 5.5% 0;
-    width: 768px;
+    margin: 2.5% 0 0 5.5%;
+    max-width: 768px;
     color: var(--container-color);
 }
 
-.hero-container h2{
+.hero-container h2 {
     font-size: 55px;
-    text-transform: uppercase;
     font-family: var(--font-mont);
+    text-transform: uppercase;
 }
 
-.hero-container p{
+.hero-container p {
+    color: #000000;
     font-size: 24px;
     font-family: var(--font-mont);
     line-height: 37px;
 }
 
-.hero-container button{
+.hero-container button {
     margin-top: 28px;
     width: 200px;
     height: 56px;
@@ -284,7 +322,7 @@ nav {
     cursor: pointer;
 }
 
-.hero-container button:active{
+.hero-container button:active {
     transform: scale(0.95);
 }
 
@@ -292,7 +330,7 @@ nav {
 
 
 /* SHOP PRODUCT SECTION */
-section {
+.shop-product-section {
     padding: 80px 10px 30px;
 }
 
@@ -365,12 +403,12 @@ section {
     color: var(--white-color);
 }
 
-.shop-btn-container{
+.shop-btn-container {
     text-align: center;
     margin: 55px 0 40px;
 }
 
-.shop-btn-container button{
+.shop-btn-container button {
     width: 220px;
     font-size: 24px;
     height: 62px;
@@ -382,7 +420,7 @@ section {
     cursor: pointer;
 }
 
-.shop-btn-container button:active{
+.shop-btn-container button:active {
     transform: scale(0.98);
     opacity: 0.7;
 }
@@ -391,8 +429,8 @@ section {
 
 
 /* PREFOOTER SECTION */
-.prefooter-section{
-    background: url(/PUBLIC/img/b2.jpg);
+.prefooter-section {
+    background: url(../img/b2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 40vh;
@@ -403,20 +441,20 @@ section {
     gap: 22px;
 }
 
-.prefooter-section h3{
+.prefooter-section h3 {
     font-size: 35px;
 }
 
-.prefooter-section h1{
+.prefooter-section h1 {
     font-size: 50px;
     font-family: var(--font-mont);
 }
 
-.prefooter-section h1 span{
+.prefooter-section h1 span {
     color: var(--red-color);
 }
 
-.prefooter-section button{
+.prefooter-section button {
     width: 220px;
     font-size: 24px;
     height: 62px;
@@ -429,9 +467,10 @@ section {
     transition: all 350ms;
 }
 
-.prefooter-section button:hover{
+.prefooter-section button:hover {
     transform: scale(1.06);
 }
+
 /* PREFOOTER SECTION ENDS */
 
 
@@ -471,12 +510,152 @@ section {
 }
 
 /* SUCCESS CONTAINER ENDS */
-
-
-@media(max-width:420px) {
-    section {
-        padding: 130px 10px 30px;
+@media(max-width: 860px) {
+    .logo-container a {
+        font-size: 20px;
     }
 
+    .nav-link {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        max-width: 360px;
+        width: 100%;
+        height: 100vh;
+        padding: 100px 20px 10px;
+        background-color: var(--container-color);
+        box-shadow: -3px 1px 7px var(--box-shadow-color);
+        transition: 200ms ease;
+        scroll-behavior: smooth;
+        z-index: 1;
+    }
+
+    .nav-link a:hover{
+        background-color: var(--white-color);
+        color: var(--blue-color);
+        width: 100%;
+        padding: 15px 4px;
+
+    }
+
+    .nav-link.open{
+        right: 0;
+    }
+
+    .close-nav-container{
+        display: block;
+        position: absolute;
+        top: 4%;
+        right: 5%;
+    }
+
+    .hamburger-container {
+        display: block;
+    }
+
+    .hero-section{
+        background-position: top right 20%;
+    }
     
+    .hero-container{
+        margin: 25% 20px;
+        padding: 30px 15px;
+        color: var(--white-color);
+        background-color: rgba(0, 0, 0, 0.539);
+    }
+
+    .hero-container h2{
+        font-size: 37px;
+    }
+
+    .hero-container p{
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 30px;
+        color: var(--white-color);
+    }
+
+    .hero-container button{
+        width: 150px;
+        height: 44px;
+        font-size: 18px;
+        margin-top: 14px;
+    }
+
+    .prefooter-section h3{
+        font-size: 20px;
+    }
+
+    .prefooter-section h1{
+        font-size: 27px;
+    }
+
+    .shop-btn-container button, 
+    .prefooter-section button{
+        width: 150px;
+        height: 42px;
+        font-size: 16px;
+    }
+}
+
+
+@media(max-width: 480px){
+    .hero-container h2{
+        font-size: 20px;
+    }
+
+    .hero-container p{
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .shop-btn-container button{
+        width: 110px;
+    }
+
+    .prefooter-section h3{
+        font-size: 16px;
+    }
+
+    .prefooter-section h1{
+        font-size: 20px;
+    }
+
+    .shop-btn-container button, 
+    .prefooter-section button{
+        height: 42px;
+        font-size: 14px;
+    }
+
+    .prefooter-section button{
+        width: 125px;
+    }
+}
+
+
+@media(max-width: 420px) {
+    .logo-container a {
+        font-size: 17px;
+    }
+
+    .hero-container button{
+        width: 100px;
+        height: 36px;
+        font-size: 14px;
+    }
+
+    .prefooter-section{
+        height: 20vh;
+    }
+
+    .prefooter-section h3{
+        font-size: 16px;
+    }
+
+    .prefooter-section h1{
+        font-size: 18px;
+    }
 }

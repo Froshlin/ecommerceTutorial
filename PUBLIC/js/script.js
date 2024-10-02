@@ -1,7 +1,19 @@
 const cartSideBar = document.querySelector(".cart-sidebar");
 const openCart = document.getElementById("cartIcon");
 const closeCart = document.getElementById("closeCart");
+const navBar = document.querySelector(".nav-link");
+const openNav = document.getElementById("openNav");
+const closeNav = document.getElementById("closeNav");
 // const totalAmountText = 
+
+
+openNav.addEventListener("click", () =>{
+    navBar.classList.add("open")
+});
+
+closeNav.addEventListener("click", () =>{
+    navBar.classList.remove("open")
+});
 
 openCart.addEventListener("click", () => {
     cartSideBar.classList.add("open")
