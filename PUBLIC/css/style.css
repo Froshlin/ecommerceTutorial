@@ -450,7 +450,7 @@ nav {
     border-radius: 50%;
     position: absolute;
     left: 40%;
-    top: 23%;
+    top: 21%;
     animation: load 0.8s linear infinite;
     opacity: 0;
 }
@@ -645,6 +645,12 @@ nav {
         height: 42px;
         font-size: 16px;
     }
+
+    #loadBtn::after{
+        width: 20px;
+        height: 20px;
+        top: 17.6%;
+    }
 }
 
 
@@ -674,6 +680,12 @@ nav {
     .prefooter-section button{
         height: 42px;
         font-size: 14px;
+    }
+
+    #loadBtn::after{
+        width: 15px;
+        height: 15px;
+        top: 19%;
     }
 
     .prefooter-section button{
